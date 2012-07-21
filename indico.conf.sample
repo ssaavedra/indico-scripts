@@ -1,0 +1,20 @@
+## Indico bulk manager config
+##
+# Please, rename to indico.conf before using.
+
+# Base URL for your INDICO installation. It can be any protocol that curl can handle.
+INDICO_BASE_URL=https://path/to/indico
+
+# No need to modify this:
+INDICO_MODIF_STATUS=$INDICO_BASE_URL/confModifRegistrants.py?performModifyStatuses
+
+# Id of the conference.
+# Usually there's no need to modify it either.
+# It is the "conf_id=" parameter in all GET requests.
+CONFERENCE_ID=0
+
+# The second argument must be your current Access Session.
+# Can be seen, for example, by typing "document.cookie" within the
+# JavaScript console in recent browsers.
+COOKIE=("Enabled=true" "MAKACSESSION=0000000000000000")
+
