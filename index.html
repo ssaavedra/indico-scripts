@@ -4,11 +4,35 @@
 	<title>Modificador de cosas del Indico</title>
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="indico.js"></script>
+	<script type="text/javascript">
+		function set_field(name) {
+			$('#fieldname').val(name);
+			return false;
+		}
+		function set_value(val) {
+			$('#fieldvalue').val(val);
+			return false;
+		}
+	</script>
 	
 </head>
 <body>
 	<form action="#" method="POST">
+		<label for="indico_ids">INDICO Ids of the people you want to modify</label>
 		<textarea id="indico_ids"></textarea>
+		<br />
+		<label for="fieldname">Status name on INDICO</label>
+		<input type="text" id="fieldname" value="statuses-2" />
+		<a href="#" onclick="return set_field('statuses-2')">Voluntario</a>
+		<a href="#" onclick="return set_field('statuses-4')">Speaker</a>
+		<br />
+		<label for="fieldvalue">Status to set it to</label>
+		<input type="text" id="fieldvalue" value="0" />
+		<a href="#" onclick="return set_value('0')">True</a>
+		<a href="#" onclick="return set_value('1')">False</a>
+		<a href="#" onclick="return set_value('2')">Maybe (speaker)</a>
+		<a href="#" onclick="if(confirm('This will unset the value from the database'))set_value('novalue'); return false">Unset</a>
+		<br />
 		<input type="button" id="submit_btn" value="Procesar!" />
 	</form>
 	<div id="debug">
