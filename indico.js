@@ -34,6 +34,21 @@ function set_value(registrant_id, fieldname, fieldvalue)
 	iframe.src = url
 }
 
+Array.prototype.unique =
+  function() {
+    var a = [];
+    var l = this.length;
+    for(var i=0; i<l; i++) {
+      for(var j=i+1; j<l; j++) {
+        // If this[i] is found later in the array
+        if (this[i] === this[j])
+          j = ++i;
+      }
+      a.push(this[i]);
+    }
+    return a;
+  };
+
 function process_inputfield(object_id, fieldname, fieldvalue)
 {
 	var object = document.getElementById(object_id)
@@ -44,9 +59,10 @@ function process_inputfield(object_id, fieldname, fieldvalue)
 	console.log("GOT", val)
 	
 	var ids = val.replace(/\s+$/, '').replace(/^\s+/, '').split(/\s+/)
+	ids = ids.map(function(e) { return parseInt(e) }).unique()
 
 	console.log(ids)
-	for(var i in ids)
+	for(var i = 0; i < ids.length; i++)
 	{
 		set_value(ids[i], fieldname, fieldvalue)
 	}
@@ -55,8 +71,8 @@ function process_inputfield(object_id, fieldname, fieldvalue)
 function onbuttonclick()
 {
 	var objid = "indico_ids"
-	var field = field_baja
-	var set_value = "novalue"
+	var field = $('#fieldname').val()
+	var set_value = $('#fieldvalue').val()
 	process_inputfield(objid, field, set_value)
 }
 

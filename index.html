@@ -9,7 +9,7 @@
 			$('#fieldname').val(name);
 			return false;
 		}
-		function set_value(val) {
+		function set_fvalue(val) {
 			$('#fieldvalue').val(val);
 			return false;
 		}
@@ -28,10 +28,10 @@
 		<br />
 		<label for="fieldvalue">Status to set it to</label>
 		<input type="text" id="fieldvalue" value="0" />
-		<a href="#" onclick="return set_value('0')">True</a>
-		<a href="#" onclick="return set_value('1')">False</a>
-		<a href="#" onclick="return set_value('2')">Maybe (speaker)</a>
-		<a href="#" onclick="if(confirm('This will unset the value from the database'))set_value('novalue'); return false">Unset</a>
+		<a href="#" onclick="return set_fvalue('0')">True</a>
+		<a href="#" onclick="return set_fvalue('1')">False</a>
+		<a href="#" onclick="return set_fvalue('2')">Maybe (speaker)</a>
+		<a href="#" onclick="if(confirm('This will unset the value from the database'))set_fvalue('novalue'); return false">Unset</a>
 		<br />
 		<input type="button" id="submit_btn" value="Procesar!" />
 	</form>
